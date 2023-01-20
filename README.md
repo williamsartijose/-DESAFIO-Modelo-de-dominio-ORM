@@ -26,11 +26,11 @@ armazenar o dia e os horários de início de fim do bloco daquele dia). Para cad
 cadastrar seu nome e email.
 
 # Modelo conceitual
-![Image](https://github.com/williamsartijose/DESAFIO-Modelo-de-dominio-E-ORM/blob/main/imagem/1.png)
+![Image](https://github.com/williamsartijose/DESAFIO-Modelo-de-dominio-ORM/blob/main/Imagem/1.png)
 
 # Instância dos dados para seeding
 
-![Image](https://github.com/williamsartijose/DESAFIO-Modelo-de-dominio-E-ORM/blob/main/imagem/2.png)
+![Image](https://github.com/williamsartijose/DESAFIO-Modelo-de-dominio-ORM/blob/main/Imagem/2.png)
 
 
 # Tecnologias utilizadas
