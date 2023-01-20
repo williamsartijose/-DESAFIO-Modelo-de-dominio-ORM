@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -27,7 +28,9 @@ public class Atividade {
 	private Double preco;
 
 	
-	
+	@ManyToOne
+	@JoinColumn(name = "categoria_id")
+	private Categoria categoria;
 	
 	@ManyToMany
 	    @JoinTable(name = "tb_atividade_participante",
@@ -80,4 +83,21 @@ public class Atividade {
 		this.preco = preco;
 	}
 
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public Set<Participante> getParticipantes() {
+		return participantes;
+	}
+
+	public void setParticipantes(Set<Participante> participantes) {
+		this.participantes = participantes;
+	}
+
+	
 }
