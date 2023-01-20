@@ -1,6 +1,7 @@
 package com.desafio.modelodominio.entities;
 
 import java.io.Serializable;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,6 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
@@ -20,42 +23,39 @@ public class Participante implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
-	private String nome;
+	private Integer id;
+	private String name;
 
 	@Column(unique = true)
 	private String email;
 
-	@ManyToMany(mappedBy = "participantes")
+	@ManyToMany
+	@JoinTable(name = "tb_atividade_participante", joinColumns = @JoinColumn(name = "participante_id"), inverseJoinColumns = @JoinColumn(name = "atividades_id"))
 	private Set<Atividade> atividades = new HashSet<>();
 
 	public Participante() {
-
 	}
 
-	public Participante(Long id, String nome, String email, Set<Atividade> atividades) {
-
+	public Participante(Integer id, String name, String email) {
 		this.id = id;
-		this.nome = nome;
+		this.name = name;
 		this.email = email;
-		this.atividades = atividades;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getEmail() {
@@ -68,5 +68,11 @@ public class Participante implements Serializable {
 
 	public Set<Atividade> getAtividades() {
 		return atividades;
+	}
+
+	@Override
+	public String toString() {
+		return "Participante{" + "id=" + id + ", name='" + name + '\'' + ", email='" + email + '\'' + ", atividades="
+				+ atividades + '}';
 	}
 }

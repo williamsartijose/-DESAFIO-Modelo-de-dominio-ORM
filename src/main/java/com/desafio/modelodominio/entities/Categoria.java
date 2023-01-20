@@ -1,5 +1,6 @@
 package com.desafio.modelodominio.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +13,12 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_categoria")
-public class Categoria {
+public class Categoria implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	
 	private String descricao;
 	
@@ -28,34 +30,37 @@ public class Categoria {
 	}
 
 
-	public Categoria(Long id, String descricao) {
-		
+	public Categoria(Integer id, String descricao) {
 		this.id = id;
 		this.descricao = descricao;
 	}
 
-
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-
 
 	public String getDescricao() {
 		return descricao;
 	}
 
-
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	
-	
-	
 
+	public List<Atividade> getAtividades() {
+		return atividades;
+	}
+
+	@Override
+	public String toString() {
+		return "Categoria{" +
+				"id=" + id +
+				", descricao='" + descricao + '\'' +
+				", atividades=" + atividades +
+				'}';
+	}
 }
