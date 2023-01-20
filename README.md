@@ -65,10 +65,10 @@ Pré-requisitos: Pom h2-console
 ```bash
 # copiar e colar a dependency do banco de dados h2
 <dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+  	<groupId>com.h2database</groupId>
+	<artifactId>h2</artifactId>
+	<scope>runtime</scope>
+</dependency>
 
 
 # Implementar o Seeding da base de dados, criar um arquivo  src/main/resources/ import.sql 
