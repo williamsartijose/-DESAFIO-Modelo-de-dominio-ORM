@@ -27,7 +27,7 @@ public class Bloco {
 
 
 	public Bloco(Long id, Instant inicio, Instant fim) {
-		super();
+		
 		this.id = id;
 		this.inicio = inicio;
 		this.fim = fim;

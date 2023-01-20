@@ -23,7 +23,7 @@ public class Categoria {
 
 
 	public Categoria(Long id, String descricao) {
-		super();
+		
 		this.id = id;
 		this.descricao = descricao;
 	}
